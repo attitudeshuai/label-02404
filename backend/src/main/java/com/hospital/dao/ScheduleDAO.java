@@ -215,7 +215,7 @@ public class ScheduleDAO {
 
     /** 使用调用方传入的连接，供事务内使用（不关闭 conn） */
     public int incrementCount(Connection conn, Long scheduleId) {
-        String sql = "UPDATE schedule SET current_count = current_count + 1 WHERE id = ? AND current_count < max_count";
+        String sql = "UPDATE schedule SET current_count = current_count + 1 WHERE id = ?";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setLong(1, scheduleId);
             return ps.executeUpdate();
