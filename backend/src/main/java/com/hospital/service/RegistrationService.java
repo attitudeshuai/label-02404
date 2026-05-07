@@ -71,7 +71,7 @@ public class RegistrationService {
         if (schedule == null) {
             throw new BusinessException("排班信息不存在");
         }
-        if (schedule.getCurrentCount() >= schedule.getMaxCount()) {
+        if (schedule.getCurrentCount() > schedule.getMaxCount()) {
             throw new BusinessException("该时段号源已满");
         }
 
